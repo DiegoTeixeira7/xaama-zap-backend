@@ -1,6 +1,5 @@
 //  Loading express-js and multer modules
 import express from "express";
-// import "express-async-errors";
 
 //  Setting up routes
 const routes = express.Router();

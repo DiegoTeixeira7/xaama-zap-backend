@@ -3,7 +3,7 @@ import express from "express";
 
 const cors = require("cors");
 import { routes } from "./routes"
-//require("./config/database");
+require("./config/database");
 
 //  Setting up express and port number
 const app = express();
