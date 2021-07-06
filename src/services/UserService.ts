@@ -1,5 +1,7 @@
 import { users } from '../entities/User';
 import { hash } from "bcryptjs";
+import { sign } from "jsonwebtoken";
+import { AppError } from 'src/errors/AppError';
 
 interface IUserRequest {
   username: string;
@@ -10,15 +12,15 @@ interface IUserRequest {
 class UserService {
   async create({ username, phone, password }: IUserRequest) {
     if (!username) {
-      throw new Error("Username is empty");
+      throw new AppError("Username is empty");
     }
 
     if (!phone) {
-      throw new Error("Phone is empty");
+      throw new AppError("Phone is empty");
     }
 
     if (!password) {
-      throw new Error("Password is empty");
+      throw new AppError("Password is empty");
     }
 
     const userAlreadyExists = await users.findOne({
@@ -26,24 +28,30 @@ class UserService {
     });
 
     if (userAlreadyExists) {
-      throw new Error("User already exists")
+      throw new AppError("User already exists!");
     }
 
     const passwordHash = await hash(password, 8);
 
-    users.create({
+    const user = await users.create({
       username: username.trim(),
       phone: phone.trim(),
       password: passwordHash
-    }).then((user) => {
-      if (user) {
-        return user;
-      } else {
-        throw new Error("User already exists")
-      }
-    }).catch((error) => {
-      throw new Error("Error internal")
     });
+
+    if (user) {
+      const token = sign({
+        username: user.username,
+        phone: user.phone
+      }, process.env.TOKEN, {
+        subject: user.id,
+        expiresIn: "1d"
+      });
+
+      return { user, token };
+    } else {
+      throw new AppError("User already exists!");
+    }
   }
 }
 
