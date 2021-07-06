@@ -10,9 +10,11 @@ const routes = express.Router();
 
 //  Importing route controllers
 import { UserController } from "@controllers/UserController";
+import { SessionController } from "@controllers/SessionController";
 
 //  Loading route controllers
 const userController = new UserController();
+const sessionController = new SessionController();
 
 //  Home
 routes.get("/", (req, res) => {
@@ -22,5 +24,8 @@ routes.get("/", (req, res) => {
 //  User
 routes.post("/user", userController.create);
 routes.get("/user", ensureAuthenticated, userController.index);
+
+//  Session
+routes.post("/login", sessionController.create);
 
 export { routes }
