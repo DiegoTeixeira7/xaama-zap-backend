@@ -1,7 +1,16 @@
 import { Request, Response } from "express"
 import { UserService } from "../services/UserService";
-
 class UserController {
+  async index(request: Request, response: Response) {
+    const { userId } = request
+
+    const userService = new UserService();
+
+    const user = await userService.index({ userId });
+
+    return response.status(200).json(user);
+  }
+
   async create(request: Request, response: Response) {
     const { username, phone, password } = request.body;
 
@@ -9,7 +18,7 @@ class UserController {
 
     const { user, token } = await userService.create({ username, phone, password });
 
-    return response.json({ user, token });
+    return response.status(200).json({ user, token });
   }
 }
 

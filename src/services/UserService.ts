@@ -4,12 +4,32 @@ import { sign } from "jsonwebtoken";
 import { AppError } from 'src/errors/AppError';
 
 interface IUserRequest {
-  username: string;
-  phone: string;
-  password: string;
+  username?: string;
+  phone?: string;
+  password?: string;
+  userId?: string;
 }
 
 class UserService {
+  async index({ userId }: IUserRequest) {
+    if (!userId) {
+      throw new AppError("User ID is empty");
+    }
+
+    const user = await users.findById(userId);
+
+    if (user) {
+      const userResponse = {
+        userName: user?.username,
+        phone: user?.phone,
+        isOnline: user?.isOnline
+      }
+
+      return userResponse;
+    } else
+      throw new AppError("User is not exists");
+  }
+
   async create({ username, phone, password }: IUserRequest) {
     if (!username) {
       throw new AppError("Username is empty");
