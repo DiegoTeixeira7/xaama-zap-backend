@@ -2,6 +2,9 @@
 import express from "express";
 import "express-async-errors";
 
+//  Loading middlewares
+import { ensureAuthenticated } from "./middlewares/ensureAuthenticated"
+
 //  Setting up routes
 const routes = express.Router();
 
@@ -9,7 +12,7 @@ const routes = express.Router();
 import { UserController } from "@controllers/UserController";
 
 //  Loading route controllers
-const createUserController = new UserController();
+const userController = new UserController();
 
 //  Home
 routes.get("/", (req, res) => {
@@ -17,6 +20,7 @@ routes.get("/", (req, res) => {
 });
 
 //  User
-routes.post("/user", createUserController.create);
+routes.post("/user", userController.create);
+routes.get("/user", ensureAuthenticated, userController.index);
 
 export { routes }
