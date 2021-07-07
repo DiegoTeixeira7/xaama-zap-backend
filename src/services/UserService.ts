@@ -56,13 +56,15 @@ class UserService {
     const user = await users.create({
       username: username.trim(),
       phone: phone.trim(),
-      password: passwordHash
+      password: passwordHash,
+      isOnline: true
     });
 
     if (user) {
       const token = sign({
         username: user.username,
-        phone: user.phone
+        phone: user.phone,
+        isOnline: user.isOnline
       }, process.env.TOKEN, {
         subject: user.id,
         expiresIn: "1d"
