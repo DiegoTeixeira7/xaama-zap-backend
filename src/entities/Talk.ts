@@ -11,11 +11,11 @@ interface ITalk extends Document {
 //	Defining Talk schema
 const TalkSchema: Schema = new Schema({
   roomId: {
-    type: [Types.ObjectId],
+    type: Types.ObjectId,
     ref: 'Rooms'
   },
   messageId: {
-    type: Types.ObjectId,
+    type: [Types.ObjectId],
     ref: 'Messages'
   },
   creationAt: {
