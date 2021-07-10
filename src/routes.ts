@@ -5,6 +5,7 @@ import "express-async-errors";
 //  Loading middlewares
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ensureParticipatesRoom } from "./middlewares/ensureParticipatesRoom"
+import { ensureAdminRoom } from "./middlewares/ensureAdminRoom"
 
 //  Setting up routes
 const routes = express.Router();
@@ -34,5 +35,6 @@ routes.post("/login", sessionController.create);
 //  Room
 routes.post("/room", ensureAuthenticated, roomController.create);
 routes.get("/room/:roomId", ensureAuthenticated, ensureParticipatesRoom, roomController.index);
+routes.delete("/room/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensureAdminRoom, roomController.delete);
 
 export { routes }
