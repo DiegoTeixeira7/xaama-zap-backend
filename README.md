@@ -1,25 +1,20 @@
 # xaama-zap-backend
 
 User
--username
--phone
--password
--isOnline
+- username
+- phone
+- password
+- isOnline
 
 
 Room
--type
--name
--description
--numberParticipants
--usersId: []
--userCreatorId
--usersIdAdmin: []
--talkId
-
-
-Talk
-- roomId
+- type
+- name
+- description
+- numberParticipants
+- usersId: []
+- userCreatorId
+- usersIdAdmin: []
 - messageId: []
 
 
@@ -30,6 +25,6 @@ Message
 
 
 UserRoom
--userId
--roomId
--isOff
+- userId
+- roomId
+- isOff
