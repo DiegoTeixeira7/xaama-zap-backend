@@ -3,7 +3,8 @@ import express from "express";
 import "express-async-errors";
 
 //  Loading middlewares
-import { ensureAuthenticated } from "./middlewares/ensureAuthenticated"
+import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
+import { ensureParticipatesRoom } from "./middlewares/ensureParticipatesRoom"
 
 //  Setting up routes
 const routes = express.Router();
@@ -11,10 +12,12 @@ const routes = express.Router();
 //  Importing route controllers
 import { UserController } from "@controllers/UserController";
 import { SessionController } from "@controllers/SessionController";
+import { RoomController } from "@controllers/RoomController";
 
 //  Loading route controllers
 const userController = new UserController();
 const sessionController = new SessionController();
+const roomController = new RoomController();
 
 //  Home
 routes.get("/", (req, res) => {
@@ -27,5 +30,9 @@ routes.get("/user", ensureAuthenticated, userController.index);
 
 //  Session
 routes.post("/login", sessionController.create);
+
+//  Room
+routes.post("/room", ensureAuthenticated, roomController.create);
+routes.get("/room/:roomId", ensureAuthenticated, ensureParticipatesRoom, roomController.index);
 
 export { routes }

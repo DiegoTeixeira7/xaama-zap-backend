@@ -30,7 +30,7 @@ const RoomSchema: Schema = new Schema({
   },
   numberParticipants: {
     type: Number,
-    default: 0
+    default: 1
   },
   usersId: {
     type: [Types.ObjectId],
@@ -44,9 +44,10 @@ const RoomSchema: Schema = new Schema({
     type: [Types.ObjectId],
     ref: 'Users'
   },
-  talkId: {
-    type: Types.ObjectId,
-    ref: 'Talks'
+  messageId: {
+    type: [Types.ObjectId],
+    ref: 'Messages',
+    default: []
   },
   creationAt: {
     type: Date,
