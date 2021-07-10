@@ -23,10 +23,19 @@ class RoomController {
     return response.status(200).json(room);
   }
 
-  // get todas as salas de um usuário
-  // delete sala(somente grupo)
-  // update sala(name, description, usersIdAdmin)
-  // update(numberParticipants, usersId)
+  async delete(request: Request, response: Response) {
+    const { roomId } = request.params;
+    const { userId } = request
+
+    const roomService = new RoomService();
+
+    const room = await roomService.delete({ userId, roomId });
+
+    return response.status(200).json(room);
+  }
+
+  // update sala(name, description, usersIdAdmin) : admin
+  // update(numberParticipants, usersId) : entrar/sair da sala
 }
 
 export { RoomController }

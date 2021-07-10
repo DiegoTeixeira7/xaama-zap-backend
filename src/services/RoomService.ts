@@ -64,6 +64,31 @@ class RoomService {
       throw new AppError("Room already exists!");
     }
   }
+
+  async delete({ roomId }: IRoomRequest) {
+    if (!roomId) {
+      throw new AppError("Room ID is empty");
+    }
+
+    const room = await rooms.findById(roomId);
+
+    if (!room) {
+      throw new AppError("Room is not exists");
+    }
+
+    if ((room?.type === 'private' && room?.numberParticipants != 1)) {
+      throw new AppError("The room is not empty");
+    }
+
+    const roomRemove = await room.remove();
+
+    if (roomRemove) {
+      return "Room removed";
+    }
+
+    return "Room has not been removed";
+  }
+
 }
 
 export { RoomService }

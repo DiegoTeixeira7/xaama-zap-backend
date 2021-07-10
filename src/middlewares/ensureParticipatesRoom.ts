@@ -11,7 +11,15 @@ export async function ensureParticipatesRoom(request: Request, response: Respons
     throw new AppError("Room ID is empty");
   }
 
-  const { usersId } = await rooms.findById(roomId);
+  try {
+    var { usersId } = await rooms.findById(roomId);
+  } catch (error) {
+    throw new AppError("Room not found");
+  }
+
+  if (!usersId) {
+    throw new AppError("Room is not exists");
+  }
 
   usersId.forEach(uId => {
     if (uId.toString() === userId) {
