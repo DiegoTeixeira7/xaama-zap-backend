@@ -76,7 +76,7 @@ class UserService {
 
       return { user, token, refreshToken };
     } else {
-      throw new AppError("User already exists!");
+      throw new AppError("User not found");
     }
   }
 }

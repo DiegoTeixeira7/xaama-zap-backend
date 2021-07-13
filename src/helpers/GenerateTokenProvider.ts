@@ -15,7 +15,7 @@ class GenerateTokenProvider {
       isOnline
     }, process.env.TOKEN, {
       subject: id,
-      expiresIn: "30s"
+      expiresIn: "60m"
     });
 
     return token;

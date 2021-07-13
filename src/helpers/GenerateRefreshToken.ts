@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 
 class GenerateRefreshToken {
   async execute(userId: string) {
-    const refreshTokenExpiresIn = dayjs().add(15, "seconds").unix();
+    const refreshTokenExpiresIn = dayjs().add(120, "minutes").unix();
 
     const generateRefreshToken = await refreshTokens.create({
       expiresIn: refreshTokenExpiresIn,
