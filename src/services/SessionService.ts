@@ -1,7 +1,9 @@
 import { users } from '../entities/User';
+import { refreshTokens } from '../entities/RefreshToken';
 import { compare } from "bcryptjs";
-import { sign } from "jsonwebtoken";
 import { AppError } from 'src/errors/AppError';
+import { GenerateRefreshToken } from 'src/helpers/GenerateRefreshToken';
+import { GenerateTokenProvider } from 'src/helpers/GenerateTokenProvider';
 
 interface IUserRequest {
   username: string;
@@ -32,16 +34,17 @@ class SessionService {
       throw new AppError("Username/Password incorrect!");
     }
 
-    const token = sign({
-      username: user.username,
-      phone: user.phone,
-      isOnline: user.isOnline
-    }, process.env.TOKEN, {
-      subject: user.id,
-      expiresIn: "1d"
-    });
+    const generateTokenProvider = new GenerateTokenProvider();
+    const token = await generateTokenProvider.execute({ username, phone: user.phone, isOnline: true, id: user.id });
 
-    return token;
+    await refreshTokens.deleteMany({
+      userId: user.id
+    })
+
+    const generateRefreshToken = new GenerateRefreshToken();
+    const refreshToken = await generateRefreshToken.execute(user.id);
+
+    return { token, refreshToken };
   }
 }
 
