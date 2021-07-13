@@ -1,7 +1,9 @@
 import { users } from '../entities/User';
+import { refreshTokens } from '../entities/RefreshToken';
 import { hash } from "bcryptjs";
-import { sign } from "jsonwebtoken";
+import { GenerateTokenProvider } from 'src/helpers/GenerateTokenProvider';
 import { AppError } from 'src/errors/AppError';
+import { GenerateRefreshToken } from 'src/helpers/GenerateRefreshToken';
 
 interface IUserRequest {
   username?: string;
@@ -61,16 +63,18 @@ class UserService {
     });
 
     if (user) {
-      const token = sign({
-        username: user.username,
-        phone: user.phone,
-        isOnline: user.isOnline
-      }, process.env.TOKEN, {
-        subject: user.id,
-        expiresIn: "1d"
-      });
+      const generateTokenProvider = new GenerateTokenProvider();
+      const token = await generateTokenProvider.execute({ username, phone, isOnline: true, id: user.id });
 
-      return { user, token };
+      await refreshTokens.deleteMany({
+        userId: user.id
+      })
+
+      const generateRefreshToken = new GenerateRefreshToken();
+      const refreshToken = await generateRefreshToken.execute(user.id);
+
+
+      return { user, token, refreshToken };
     } else {
       throw new AppError("User already exists!");
     }

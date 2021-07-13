@@ -16,9 +16,9 @@ class UserController {
 
     const userService = new UserService();
 
-    const { user, token } = await userService.create({ username, phone, password });
+    const { user, token, refreshToken } = await userService.create({ username, phone, password });
 
-    return response.status(200).json({ user, token });
+    return response.status(200).json({ user, token, refreshToken });
   }
 }
 

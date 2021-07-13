@@ -12,11 +12,13 @@ const routes = express.Router();
 
 //  Importing route controllers
 import { UserController } from "@controllers/UserController";
+import { RefreshTokenController } from "@controllers/RefreshTokenController";
 import { SessionController } from "@controllers/SessionController";
 import { RoomController } from "@controllers/RoomController";
 
 //  Loading route controllers
 const userController = new UserController();
+const refreshTokenController = new RefreshTokenController();
 const sessionController = new SessionController();
 const roomController = new RoomController();
 
@@ -28,6 +30,9 @@ routes.get("/", (req, res) => {
 //  User
 routes.post("/user", userController.create);
 routes.get("/user", ensureAuthenticated, userController.index);
+
+//  Refresh Token
+routes.post("/refreshToken/:refreshTokenId", refreshTokenController.handle);
 
 //  Session
 routes.post("/login", sessionController.create);
