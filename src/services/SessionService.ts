@@ -7,7 +7,7 @@ import { GenerateTokenProvider } from 'src/helpers/GenerateTokenProvider';
 
 interface IUserRequest {
   username: string;
-  password: string;
+  password?: string;
 }
 
 class SessionService {
@@ -34,6 +34,10 @@ class SessionService {
       throw new AppError("Username/Password incorrect!");
     }
 
+    user.isOnline = true;
+    user.updateAt = new Date(Date.now());
+    await user.save();
+
     const generateTokenProvider = new GenerateTokenProvider();
     const token = await generateTokenProvider.execute({ username, phone: user.phone, isOnline: true, id: user.id });
 
@@ -46,9 +50,30 @@ class SessionService {
 
     return { token, refreshToken };
   }
+
+  async logout({ username }: IUserRequest) {
+    if (!username) {
+      throw new AppError("Username/Password incorrect!");
+    }
+
+    const user = await users.findOne({
+      username: username.trim()
+    });
+
+    if (!user) {
+      throw new AppError("Username/Password incorrect!");
+    }
+
+    user.isOnline = false;
+    user.updateAt = new Date(Date.now());
+    await user.save();
+
+    await refreshTokens.deleteMany({
+      userId: user.id
+    })
+
+    return "User logged out successfully";
+  }
 }
 
 export { SessionService }
-
-
-// TODO: colocar usuário online quando ele faz o login e criar rota de logout

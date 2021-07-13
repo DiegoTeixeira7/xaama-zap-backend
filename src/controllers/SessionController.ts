@@ -11,6 +11,16 @@ class SessionController {
 
     return response.status(200).json(token);
   }
+
+  async logout(request: Request, response: Response) {
+    const { username } = request.body;
+
+    const sessionService = new SessionService();
+
+    const message = await sessionService.logout({ username });
+
+    return response.status(200).json(message);
+  }
 }
 
 export { SessionController }

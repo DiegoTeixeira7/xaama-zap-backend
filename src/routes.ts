@@ -36,6 +36,7 @@ routes.post("/refreshToken/:refreshTokenId", refreshTokenController.handle);
 
 //  Session
 routes.post("/login", sessionController.create);
+routes.post("/logout", ensureAuthenticated, sessionController.logout);
 
 //  Room
 routes.post("/room", ensureAuthenticated, roomController.create);
