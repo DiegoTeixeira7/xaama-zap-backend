@@ -8,7 +8,7 @@ interface IRoom extends Document {
   numberParticipants: number;
   usersId: [Types.ObjectId]
   userCreatorId: Types.ObjectId,
-  usersIdAdmin: [Types.ObjectId]
+  usersIdAdmin: [Types.ObjectId],
   talkId: Types.ObjectId,
   creationAt: Date;
   updateAt: Date;

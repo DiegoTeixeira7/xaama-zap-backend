@@ -41,6 +41,7 @@ routes.post("/logout", ensureAuthenticated, sessionController.logout);
 //  Room
 routes.post("/room", ensureAuthenticated, roomController.create);
 routes.get("/room/:roomId", ensureAuthenticated, ensureParticipatesRoom, roomController.index);
+routes.patch("/roomAdmin/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensureAdminRoom, roomController.updateByAdmin);
 routes.delete("/room/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensureAdminRoom, roomController.delete);
 
 export { routes }

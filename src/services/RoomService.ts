@@ -1,4 +1,5 @@
 import { rooms } from '../entities/Room';
+import { users } from '../entities/User';
 import { AppError } from 'src/errors/AppError';
 
 interface IRoomRequest {
@@ -8,6 +9,8 @@ interface IRoomRequest {
   numberParticipants?: number;
   userId?: string;
   roomId?: string;
+  transformIntoAdmin?: boolean;
+  userIdAdmin?: [string]
 }
 
 class RoomService {
@@ -62,6 +65,68 @@ class RoomService {
       return room;
     } else {
       throw new AppError("Room already exists!");
+    }
+  }
+
+  async updateByAdmin({ userId, roomId, name, description, transformIntoAdmin, userIdAdmin }: IRoomRequest) {
+    if (!userId) {
+      throw new AppError("User ID is empty");
+    }
+
+    if (!roomId) {
+      throw new AppError("Room ID is empty");
+    }
+
+    const room = await rooms.findById(roomId);
+
+    if (!room) {
+      throw new AppError("Room is not exists");
+    }
+
+    if (!name) {
+      throw new AppError("Name is empty");
+    }
+
+    if (!description) {
+      throw new AppError("Description is empty");
+    }
+
+    if (userIdAdmin) {
+      const newUserAdmin = await users.findById(userIdAdmin);
+
+      if (!newUserAdmin) {
+        throw new AppError("User admin ID is not exists");
+      }
+
+      let isAdmin = false;
+
+      room.usersIdAdmin.forEach(userId => {
+        if (userIdAdmin.toString() === userId.toString()) {
+          isAdmin = true;
+        }
+      });
+
+      if (transformIntoAdmin && !isAdmin) {
+        room.usersIdAdmin.push(newUserAdmin.id);
+      } else if (!transformIntoAdmin && isAdmin) {
+        const roomFilter = room.usersIdAdmin.filter(userId =>
+          (userIdAdmin.toString() !== userId.toString())
+        );
+
+        // arrumar typescript
+        room.usersIdAdmin = roomFilter;
+      }
+    }
+
+    room.name = name.trim();
+    room.description = description.trim();
+
+    const updatedRoom = await room.save();
+
+    if (updatedRoom) {
+      return updatedRoom;
+    } else {
+      throw new AppError("Room not updated");
     }
   }
 
