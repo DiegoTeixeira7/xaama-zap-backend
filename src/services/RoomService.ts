@@ -10,7 +10,7 @@ interface IRoomRequest {
   userId?: string;
   roomId?: string;
   transformIntoAdmin?: boolean;
-  userIdAdmin?: [string]
+  userIdAdmin?: string
 }
 
 class RoomService {
@@ -109,12 +109,7 @@ class RoomService {
       if (transformIntoAdmin && !isAdmin) {
         room.usersIdAdmin.push(newUserAdmin.id);
       } else if (!transformIntoAdmin && isAdmin) {
-        const roomFilter = room.usersIdAdmin.filter(userId =>
-          (userIdAdmin.toString() !== userId.toString())
-        );
-
-        // arrumar typescript
-        room.usersIdAdmin = roomFilter;
+        room.usersIdAdmin.splice(room.usersIdAdmin.indexOf(newUserAdmin.id), 1);
       }
     }
 
