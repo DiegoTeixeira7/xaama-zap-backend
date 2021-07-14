@@ -23,17 +23,6 @@ class RoomController {
     return response.status(200).json(room);
   }
 
-  async delete(request: Request, response: Response) {
-    const { roomId } = request.params;
-    const { userId } = request
-
-    const roomService = new RoomService();
-
-    const room = await roomService.delete({ userId, roomId });
-
-    return response.status(200).json(room);
-  }
-
   async updateByAdmin(request: Request, response: Response) {
     const { roomId } = request.params;
     const { userId } = request;
@@ -53,9 +42,34 @@ class RoomController {
     return response.status(200).json(roomUpdated);
   }
 
-  // update(numberParticipants, usersId) : entrar/sair da sala
   async updateParticipants(request: Request, response: Response) {
+    const { roomId } = request.params;
     const { userId } = request;
+    const { enterExitRoom, userEnterExitRoomId } = request.body;
+
+    const roomService = new RoomService();
+
+    const roomUpdated = await roomService.updateParticipants({
+      userId,
+      roomId,
+      enterExitRoom,
+      userEnterExitRoomId
+    });
+
+    return response.status(200).json(roomUpdated);
+  }
+
+  // TODO: sair/entrar na sala usuário
+
+  async delete(request: Request, response: Response) {
+    const { roomId } = request.params;
+    const { userId } = request
+
+    const roomService = new RoomService();
+
+    const room = await roomService.delete({ userId, roomId });
+
+    return response.status(200).json(room);
   }
 }
 
