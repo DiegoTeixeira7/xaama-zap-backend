@@ -34,8 +34,29 @@ class RoomController {
     return response.status(200).json(room);
   }
 
-  // update sala(name, description, usersIdAdmin) : admin
+  async updateByAdmin(request: Request, response: Response) {
+    const { roomId } = request.params;
+    const { userId } = request;
+    const { name, description, transformIntoAdmin, userIdAdmin } = request.body;
+
+    const roomService = new RoomService();
+
+    const roomUpdated = await roomService.updateByAdmin({
+      userId,
+      roomId,
+      name,
+      description,
+      transformIntoAdmin,
+      userIdAdmin
+    });
+
+    return response.status(200).json(roomUpdated);
+  }
+
   // update(numberParticipants, usersId) : entrar/sair da sala
+  async updateParticipants(request: Request, response: Response) {
+    const { userId } = request;
+  }
 }
 
 export { RoomController }
