@@ -15,12 +15,14 @@ import { UserController } from "@controllers/UserController";
 import { RefreshTokenController } from "@controllers/RefreshTokenController";
 import { SessionController } from "@controllers/SessionController";
 import { RoomController } from "@controllers/RoomController";
+import { MessageController } from "@controllers/MessageController";
 
 //  Loading route controllers
 const userController = new UserController();
 const refreshTokenController = new RefreshTokenController();
 const sessionController = new SessionController();
 const roomController = new RoomController();
+const messageController = new MessageController();
 
 //  Home
 routes.get("/", (req, res) => {
@@ -45,5 +47,8 @@ routes.patch("/room/:roomId", ensureAuthenticated, roomController.update);
 routes.patch("/roomParticipants/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensureAdminRoom, roomController.updateParticipants);
 routes.patch("/roomAdmin/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensureAdminRoom, roomController.updateByAdmin);
 routes.delete("/room/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensureAdminRoom, roomController.delete);
+
+// Message
+routes.post("/message/:roomId", ensureAuthenticated, ensureParticipatesRoom, messageController.create);
 
 export { routes }

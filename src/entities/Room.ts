@@ -2,14 +2,14 @@
 import { model, Schema, Model, Document, Types } from 'mongoose';
 
 interface IRoom extends Document {
-  type: string
+  type: string;
   name: string;
   description: string;
   numberParticipants: number;
-  usersId: [Types.ObjectId]
-  userCreatorId: Types.ObjectId,
-  usersIdAdmin: [Types.ObjectId],
-  talkId: Types.ObjectId,
+  usersId: [Types.ObjectId];
+  userCreatorId: Types.ObjectId;
+  usersIdAdmin: [Types.ObjectId];
+  messageId: [Types.ObjectId];
   creationAt: Date;
   updateAt: Date;
 }
