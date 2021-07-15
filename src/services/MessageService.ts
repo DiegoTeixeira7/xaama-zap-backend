@@ -51,4 +51,3 @@ class MessageService {
 export { MessageService }
 
 // TODO: excluir mensagens em cascata quando a sala for apagada
-// TODO: popular mensagens ao buscar uma sala
