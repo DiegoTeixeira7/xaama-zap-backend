@@ -70,8 +70,6 @@ class RoomService {
     }
   }
 
-  // TODO: verificar se o usuário participa da sala para transformar ele em admin
-
   async updateByAdmin({ userId, roomId, name, description, transformIntoAdmin, userIdAdmin }: IRoomRequest) {
     if (!userId) {
       throw new AppError("User ID is empty");
