@@ -59,7 +59,21 @@ class RoomController {
     return response.status(200).json(roomUpdated);
   }
 
-  // TODO: sair/entrar na sala usuário
+  async update(request: Request, response: Response) {
+    const { roomId } = request.params;
+    const { userId } = request;
+    const { enterExitRoom } = request.body;
+
+    const roomService = new RoomService();
+
+    const roomUpdated = await roomService.update({
+      userId,
+      roomId,
+      enterExitRoom,
+    });
+
+    return response.status(200).json(roomUpdated);
+  }
 
   async delete(request: Request, response: Response) {
     const { roomId } = request.params;
