@@ -209,6 +209,94 @@ class RoomService {
     }
   }
 
+  async update({ userId, roomId, enterExitRoom }: IRoomRequest) {
+    if (!userId) {
+      throw new AppError("User ID is empty");
+    }
+
+    if (!roomId) {
+      throw new AppError("Room ID is empty");
+    }
+
+    const room = await rooms.findById(roomId);
+
+    if (!room) {
+      throw new AppError("Room is not exists");
+    }
+
+    const userEnterExit = await users.findById(userId);
+
+    if (!userEnterExit) {
+      throw new AppError("User enter/exit room ID is not exists");
+    }
+
+    let isRoom = false;
+
+    // check if the user is in the room
+    room.usersId.forEach(uId => {
+      if (uId.toString() === userId.toString()) {
+        isRoom = true;
+      }
+    });
+
+    if (!isRoom && enterExitRoom) {
+      // enter the room
+      if (room.type === 'private') {
+        if (room.numberParticipants === 1) {
+          room.usersIdAdmin.push(userEnterExit.id);
+        } else {
+          throw new AppError("Private room");
+        }
+      }
+
+      room.usersId.push(userEnterExit.id);
+      room.numberParticipants += 1;
+
+    } else if (isRoom && !enterExitRoom) {
+      // leave the room
+      let isAdmin = false;
+
+      // check if the user is room admin
+      room.usersIdAdmin.forEach(uId => {
+        if (uId.toString() === userId.toString()) {
+          isAdmin = true;
+        }
+      });
+
+      if (isAdmin) {
+        room.usersIdAdmin.splice(room.usersIdAdmin.indexOf(userEnterExit.id), 1);
+      }
+
+      room.usersId.splice(room.usersId.indexOf(userEnterExit.id), 1);
+      room.numberParticipants -= 1;
+
+    } else if (isRoom && enterExitRoom) {
+      throw new AppError("User already participates in the room");
+    } else {
+      throw new AppError("User does not participate in the room");
+    }
+
+    room.updateAt = new Date(Date.now());
+
+    const updatedRoom = await room.save();
+
+    if (updatedRoom) {
+      if (updatedRoom.numberParticipants === 0) {
+        const roomRemove = await room.remove();
+
+        if (roomRemove) {
+          return "Room removed";
+        }
+
+        return "Room has not been removed";
+      }
+
+      return updatedRoom;
+    } else {
+      throw new AppError("Room not updated");
+    }
+  }
+
   async delete({ roomId }: IRoomRequest) {
     if (!roomId) {
       throw new AppError("Room ID is empty");
