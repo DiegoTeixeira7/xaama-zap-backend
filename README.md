@@ -26,5 +26,5 @@ Message
 
 UserRoom
 - userId
-- roomId
-- isOff
+- roomId: []
+- clearMessagesRoomId: []

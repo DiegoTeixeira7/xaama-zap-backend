@@ -11,17 +11,17 @@ interface IUserRoom extends Document {
 
 //	Defining UserRoom schema
 const UserRoomSchema: Schema = new Schema({
-  roomId: {
-    type: Types.ObjectId,
-    ref: 'Rooms'
-  },
   userId: {
     type: Types.ObjectId,
     ref: 'Users'
   },
-  isOff: {
-    type: Boolean,
-    default: true
+  roomId: {
+    type: [Types.ObjectId],
+    ref: 'Rooms'
+  },
+  clearMessagesRoomId: {
+    type: [Types.ObjectId],
+    ref: 'Rooms'
   },
   creationAt: {
     type: Date,
