@@ -70,6 +70,8 @@ class RoomService {
     }
   }
 
+  // TODO: verificar se o usuário participa da sala para transformar ele em admin
+
   async updateByAdmin({ userId, roomId, name, description, transformIntoAdmin, userIdAdmin }: IRoomRequest) {
     if (!userId) {
       throw new AppError("User ID is empty");
@@ -94,6 +96,22 @@ class RoomService {
     }
 
     if (userIdAdmin) {
+
+      if (transformIntoAdmin) {
+        let isRoom = false;
+
+        // check if the user is in the room
+        room.usersId.forEach(uId => {
+          if (userIdAdmin.toString() === uId.toString()) {
+            isRoom = true;
+          }
+        });
+
+        if (!isRoom) {
+          throw new AppError("User does not participate in the room");
+        }
+      }
+
       const newUserAdmin = await users.findById(userIdAdmin);
 
       if (!newUserAdmin) {
@@ -102,8 +120,8 @@ class RoomService {
 
       let isAdmin = false;
 
-      room.usersIdAdmin.forEach(userId => {
-        if (userIdAdmin.toString() === userId.toString()) {
+      room.usersIdAdmin.forEach(uId => {
+        if (userIdAdmin.toString() === uId.toString()) {
           isAdmin = true;
         }
       });
@@ -156,8 +174,8 @@ class RoomService {
     let isRoom = false;
 
     // check if the user is in the room
-    room.usersId.forEach(userId => {
-      if (userEnterExitRoomId.toString() === userId.toString()) {
+    room.usersId.forEach(uId => {
+      if (userEnterExitRoomId.toString() === uId.toString()) {
         isRoom = true;
       }
     });
@@ -179,8 +197,8 @@ class RoomService {
       // leave the room
       let isAdmin = false;
       // check if the user is room admin
-      room.usersIdAdmin.forEach(userId => {
-        if (userEnterExitRoomId.toString() === userId.toString()) {
+      room.usersIdAdmin.forEach(uId => {
+        if (userEnterExitRoomId.toString() === uId.toString()) {
           isAdmin = true;
         }
       });
@@ -203,6 +221,16 @@ class RoomService {
     const updatedRoom = await room.save();
 
     if (updatedRoom) {
+      if (updatedRoom.numberParticipants === 0) {
+        const roomRemove = await room.remove();
+
+        if (roomRemove) {
+          return "Room removed";
+        }
+
+        return "Room has not been removed";
+      }
+
       return updatedRoom;
     } else {
       throw new AppError("Room not updated");
