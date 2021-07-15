@@ -21,7 +21,7 @@ class RoomService {
       throw new AppError("Room ID is empty");
     }
 
-    const room = await rooms.findById(roomId);
+    const room = await rooms.findById(roomId).populate('messageId');
 
     if (room) {
       return room;
