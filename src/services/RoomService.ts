@@ -1,6 +1,7 @@
 import { rooms } from '../entities/Room';
 import { users } from '../entities/User';
 import { AppError } from 'src/errors/AppError';
+import { DeleteAllMessagesFromRoom } from 'src/helpers/DeleteAllMessagesFromRoom';
 
 interface IRoomRequest {
   type?: string;
@@ -228,16 +229,6 @@ class RoomService {
     const updatedRoom = await room.save();
 
     if (updatedRoom) {
-      if (updatedRoom.numberParticipants === 0) {
-        const roomRemove = await room.remove();
-
-        if (roomRemove) {
-          return "Room removed";
-        }
-
-        return "Room has not been removed";
-      }
-
       return updatedRoom;
     } else {
       throw new AppError("Room not updated");
@@ -320,7 +311,12 @@ class RoomService {
         const roomRemove = await room.remove();
 
         if (roomRemove) {
-          return "Room removed";
+          const deleteAllMessagesFromRoom = new DeleteAllMessagesFromRoom();
+          if (deleteAllMessagesFromRoom.execute(roomRemove?.messageId)) {
+            return "Room and messages removed";
+          } else {
+            return "Room and removed";
+          }
         }
 
         return "Room has not been removed";
@@ -350,7 +346,12 @@ class RoomService {
     const roomRemove = await room.remove();
 
     if (roomRemove) {
-      return "Room removed";
+      const deleteAllMessagesFromRoom = new DeleteAllMessagesFromRoom();
+      if (deleteAllMessagesFromRoom.execute(roomRemove?.messageId)) {
+        return "Room and messages removed";
+      } else {
+        return "Room and removed";
+      }
     }
 
     return "Room has not been removed";
