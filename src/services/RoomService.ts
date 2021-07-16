@@ -21,7 +21,16 @@ class RoomService {
       throw new AppError("Room ID is empty");
     }
 
-    const room = await rooms.findById(roomId).populate('messageId');
+    // https://mongoosejs.com/docs/populate.html
+    const room = await rooms.findById(roomId)
+      .populate({
+        path: 'messageId',
+        populate: {
+          path: 'userId',
+          select: '-creationAt -updateAt -_id -isOnline -phone -password -__v '
+        },
+        select: '-creationAt -updateAt -roomId -__v '
+      });
 
     if (room) {
       return room;
