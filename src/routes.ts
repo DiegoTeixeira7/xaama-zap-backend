@@ -53,7 +53,6 @@ routes.post("/message/:roomId", ensureAuthenticated, ensureParticipatesRoom, mes
 
 export { routes }
 
-// TODO: quando usuário se cadastra cria um userRoom
 // TODO: get user room com populate (rota)
 // TODO: rota para limpar/voltar as mensagens (rota)
 // TODO: quando o último adm sai de uma sala, algum outro usuário vira adm (helper)
