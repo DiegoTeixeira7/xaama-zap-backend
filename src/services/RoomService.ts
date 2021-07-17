@@ -2,6 +2,7 @@ import { rooms } from '../entities/Room';
 import { users } from '../entities/User';
 import { AppError } from 'src/errors/AppError';
 import { DeleteAllMessagesFromRoom } from 'src/helpers/DeleteAllMessagesFromRoom';
+import { EnterUserRoom } from 'src/helpers/EnterUserRoom';
 
 interface IRoomRequest {
   type?: string;
@@ -74,6 +75,9 @@ class RoomService {
     });
 
     if (room) {
+      const enterUserRoom = new EnterUserRoom();
+      await enterUserRoom.execute({ userId: room.userCreatorId, roomId: room.id })
+
       return room;
     } else {
       throw new AppError("Room already exists!");
@@ -198,6 +202,9 @@ class RoomService {
         }
       }
 
+      const enterUserRoom = new EnterUserRoom();
+      await enterUserRoom.execute({ userId: newUser.id, roomId: room.id })
+
       room.usersId.push(newUser.id);
       room.numberParticipants += 1;
 
@@ -277,6 +284,9 @@ class RoomService {
 
       room.usersId.push(userEnterExit.id);
       room.numberParticipants += 1;
+
+      const enterUserRoom = new EnterUserRoom();
+      await enterUserRoom.execute({ userId: userEnterExit.id, roomId: room.id })
 
     } else if (isRoom && !enterExitRoom) {
       // leave the room
