@@ -1,10 +1,10 @@
 import { users } from '../entities/User';
 import { refreshTokens } from '../entities/RefreshToken';
+import { usersRooms } from 'src/entities/UserRoom';
 import { hash } from "bcryptjs";
 import { GenerateTokenProvider } from 'src/helpers/GenerateTokenProvider';
 import { AppError } from 'src/errors/AppError';
 import { GenerateRefreshToken } from 'src/helpers/GenerateRefreshToken';
-
 interface IUserRequest {
   username?: string;
   phone?: string;
@@ -73,6 +73,7 @@ class UserService {
       const generateRefreshToken = new GenerateRefreshToken();
       const refreshToken = await generateRefreshToken.execute(user.id);
 
+      await usersRooms.create({ userId: user.id });
 
       return { user, token, refreshToken };
     } else {
