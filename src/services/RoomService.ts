@@ -1,15 +1,17 @@
 import { rooms } from '../entities/Room';
 import { users } from '../entities/User';
+import { Types } from 'mongoose';
 import { AppError } from 'src/errors/AppError';
 import { DeleteAllMessagesFromRoom } from 'src/helpers/DeleteAllMessagesFromRoom';
 import { EnterUserRoom } from 'src/helpers/EnterUserRoom';
+import { ExitUserRoom } from 'src/helpers/ExitUserRoom';
 
 interface IRoomRequest {
   type?: string;
   name?: string;
   description?: string;
   numberParticipants?: number;
-  userId?: string;
+  userId?: Types.ObjectId | string;
   roomId?: string;
   transformIntoAdmin?: boolean;
   userIdAdmin?: string;
@@ -203,7 +205,7 @@ class RoomService {
       }
 
       const enterUserRoom = new EnterUserRoom();
-      await enterUserRoom.execute({ userId: newUser.id, roomId: room.id })
+      await enterUserRoom.execute({ userId: newUser.id, roomId: room.id });
 
       room.usersId.push(newUser.id);
       room.numberParticipants += 1;
@@ -221,6 +223,9 @@ class RoomService {
       if (isAdmin) {
         room.usersIdAdmin.splice(room.usersIdAdmin.indexOf(newUser.id), 1);
       }
+
+      const exitUserRoom = new ExitUserRoom();
+      await exitUserRoom.execute({ userId: newUser.id, roomId: room.id });
 
       room.usersId.splice(room.usersId.indexOf(newUser.id), 1);
       room.numberParticipants -= 1;
@@ -303,6 +308,9 @@ class RoomService {
         room.usersIdAdmin.splice(room.usersIdAdmin.indexOf(userEnterExit.id), 1);
       }
 
+      const exitUserRoom = new ExitUserRoom();
+      await exitUserRoom.execute({ userId: userEnterExit.id, roomId: room.id })
+
       room.usersId.splice(room.usersId.indexOf(userEnterExit.id), 1);
       room.numberParticipants -= 1;
 
@@ -338,9 +346,13 @@ class RoomService {
     }
   }
 
-  async delete({ roomId }: IRoomRequest) {
+  async delete({ roomId, userId }: IRoomRequest) {
     if (!roomId) {
       throw new AppError("Room ID is empty");
+    }
+
+    if (!userId) {
+      throw new AppError("User ID is empty");
     }
 
     const room = await rooms.findById(roomId);
@@ -356,7 +368,14 @@ class RoomService {
     const roomRemove = await room.remove();
 
     if (roomRemove) {
+      const exitUserRoom = new ExitUserRoom();
+
+      roomRemove.usersId?.map(async (uId) => {
+        await exitUserRoom.execute({ userId: uId, roomId: room.id });
+      })
+
       const deleteAllMessagesFromRoom = new DeleteAllMessagesFromRoom();
+
       if (deleteAllMessagesFromRoom.execute(roomRemove?.messageId)) {
         return "Room and messages removed";
       } else {
