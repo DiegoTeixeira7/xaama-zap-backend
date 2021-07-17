@@ -2,11 +2,11 @@ import { Types } from 'mongoose';
 import { usersRooms } from '../entities/UserRoom';
 
 interface IUserRoomRequest {
-  userId: Types.ObjectId,
+  userId: string | Types.ObjectId,
   roomId: Types.ObjectId,
 }
 
-class EnterUserRoom {
+class ExitUserRoom {
   async execute({ userId, roomId }: IUserRoomRequest) {
     if (!userId) {
       return false;
@@ -32,11 +32,11 @@ class EnterUserRoom {
         }
       });
 
-      if (isUserRoom) {
+      if (!isUserRoom) {
         return false;
       }
 
-      userRoom?.roomId.push(roomId);
+      userRoom.roomId.splice(userRoom.roomId.indexOf(roomId), 1);
       userRoom.updateAt = new Date(Date.now());
 
       const userRoomUpdate = await userRoom.save();
@@ -46,19 +46,10 @@ class EnterUserRoom {
       } else {
         return false;
       }
-    } else {
-      const userRoom = await usersRooms.create({
-        userId,
-        roomId: [roomId]
-      });
-
-      if (userRoom) {
-        return true;
-      } else {
-        return false;
-      }
     }
+
+    return false
   }
 }
 
-export { EnterUserRoom }
+export { ExitUserRoom }
