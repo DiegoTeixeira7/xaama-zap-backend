@@ -16,6 +16,7 @@ import { RefreshTokenController } from "@controllers/RefreshTokenController";
 import { SessionController } from "@controllers/SessionController";
 import { RoomController } from "@controllers/RoomController";
 import { MessageController } from "@controllers/MessageController";
+import { UserRoomController } from "@controllers/UserRoomController";
 
 //  Loading route controllers
 const userController = new UserController();
@@ -23,6 +24,7 @@ const refreshTokenController = new RefreshTokenController();
 const sessionController = new SessionController();
 const roomController = new RoomController();
 const messageController = new MessageController();
+const userRoomController = new UserRoomController();
 
 //  Home
 routes.get("/", (req, res) => {
@@ -51,8 +53,10 @@ routes.delete("/room/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensu
 // Message
 routes.post("/message/:roomId", ensureAuthenticated, ensureParticipatesRoom, messageController.create);
 
+// UserRoom
+routes.get("/userRoom", ensureAuthenticated, userRoomController.index);
+
 export { routes }
 
-// TODO: get user room com populate (rota)
 // TODO: rota para limpar/voltar as mensagens (rota)
 // TODO: quando o último adm sai de uma sala, algum outro usuário vira adm (helper)
