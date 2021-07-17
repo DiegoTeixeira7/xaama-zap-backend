@@ -2,9 +2,9 @@
 import { model, Schema, Model, Document, Types } from 'mongoose';
 
 interface IUserRoom extends Document {
-  roomId: Types.ObjectId,
   userId: Types.ObjectId,
-  isOff: boolean,
+  roomId: [Types.ObjectId],
+  clearMessagesRoomId: [Types.ObjectId],
   creationAt: Date;
   updateAt: Date;
 }
@@ -17,11 +17,13 @@ const UserRoomSchema: Schema = new Schema({
   },
   roomId: {
     type: [Types.ObjectId],
-    ref: 'Rooms'
+    ref: 'Rooms',
+    default: []
   },
   clearMessagesRoomId: {
     type: [Types.ObjectId],
-    ref: 'Rooms'
+    ref: 'Rooms',
+    default: []
   },
   creationAt: {
     type: Date,
