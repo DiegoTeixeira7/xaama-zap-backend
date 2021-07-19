@@ -17,24 +17,32 @@ interface IRoomRequest {
   userIdAdmin?: string;
   enterExitRoom?: boolean;
   userEnterExitRoomId?: string;
+  isMessages?: boolean;
 }
 
 class RoomService {
-  async index({ roomId }: IRoomRequest) {
+  async index({ roomId, isMessages }: IRoomRequest) {
     if (!roomId) {
       throw new AppError("Room ID is empty");
     }
 
-    // https://mongoosejs.com/docs/populate.html
-    const room = await rooms.findById(roomId)
-      .populate({
-        path: 'messageId',
-        populate: {
-          path: 'userId',
-          select: '-creationAt -updateAt -_id -isOnline -phone -password -__v '
-        },
-        select: '-creationAt -updateAt -roomId -__v '
-      });
+    let room = null;
+
+    if (isMessages) {
+      // https://mongoosejs.com/docs/populate.html
+      room = await rooms.findById(roomId)
+        .populate({
+          path: 'messageId',
+          populate: {
+            path: 'userId',
+            select: '-creationAt -updateAt -_id -isOnline -phone -password -__v '
+          },
+          select: '-creationAt -updateAt -roomId -__v '
+        });
+    } else {
+      room = await rooms.findById(roomId);
+      room.messageId = [];
+    }
 
     if (room) {
       return room;
