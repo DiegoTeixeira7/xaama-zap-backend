@@ -59,6 +59,5 @@ routes.patch("/userRoom/:roomId", ensureAuthenticated, ensureParticipatesRoom, u
 
 export { routes }
 
-// TODO: tratar alguns lugares com try catch
 // TODO: salvar json d insomnia
 // TODO: Implementar testes

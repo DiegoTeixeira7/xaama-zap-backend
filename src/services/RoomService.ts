@@ -67,9 +67,14 @@ class RoomService {
       throw new AppError("Description is empty");
     }
 
-    const roomNameAlreadyExists = await rooms.findOne({
-      name: name.trim()
-    });
+    let roomNameAlreadyExists = null;
+    try {
+      roomNameAlreadyExists = await rooms.findOne({
+        name: name.trim()
+      });
+    } catch (err) {
+      throw new AppError(err);
+    }
 
     if (roomNameAlreadyExists) {
       throw new AppError("Room already exists!");
