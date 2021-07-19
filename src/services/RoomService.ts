@@ -352,13 +352,12 @@ class RoomService {
         if (roomRemove) {
           const deleteAllMessagesFromRoom = new DeleteAllMessagesFromRoom();
           if (deleteAllMessagesFromRoom.execute(roomRemove?.messageId)) {
-            return "Room and messages removed";
+            return { message: "Room and messages removed" }
           } else {
-            return "Room and removed";
+            return { message: "Room removed" }
           }
         }
-
-        return "Room has not been removed";
+        throw new AppError("Room has not been removed")
       }
 
       return updatedRoom;
@@ -398,13 +397,13 @@ class RoomService {
       const deleteAllMessagesFromRoom = new DeleteAllMessagesFromRoom();
 
       if (deleteAllMessagesFromRoom.execute(roomRemove?.messageId)) {
-        return "Room and messages removed";
+        return { message: "Room and messages removed" }
       } else {
-        return "Room and removed";
+        return { message: "Room removed" }
       }
     }
 
-    return "Room has not been removed";
+    throw new AppError("Room has not been removed")
   }
 
 }

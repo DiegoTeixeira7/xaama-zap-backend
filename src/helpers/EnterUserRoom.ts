@@ -20,7 +20,7 @@ class EnterUserRoom {
     try {
       userRoom = await usersRooms.findOne({ userId });
     } catch (err) {
-      // error
+      return false;
     }
 
     if (userRoom) {

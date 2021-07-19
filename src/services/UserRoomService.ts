@@ -28,7 +28,7 @@ class UserRoomService {
       return userRoom;
 
     } else {
-      return "User Room is not found"
+      throw new AppError("User Room is not found");
     }
   }
 
