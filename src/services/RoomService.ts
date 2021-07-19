@@ -119,6 +119,10 @@ class RoomService {
 
     if (userIdAdmin) {
 
+      if (userId === userIdAdmin) {
+        throw new AppError("You cannot add/remove your admin from a room");
+      }
+
       if (transformIntoAdmin) {
         let isRoom = false;
 
@@ -185,6 +189,10 @@ class RoomService {
 
     if (!userEnterExitRoomId) {
       throw new AppError("User enter/exit room ID is empty");
+    }
+
+    if (userId === userEnterExitRoomId) {
+      throw new AppError("You cannot add/remove yourself from a room");
     }
 
     const newUser = await users.findById(userEnterExitRoomId);
@@ -303,6 +311,8 @@ class RoomService {
 
     } else if (isRoom && !enterExitRoom) {
       // leave the room
+      room.usersId.splice(room.usersId.indexOf(userEnterExit.id), 1);
+
       let isAdmin = false;
 
       // check if the user is room admin
@@ -314,13 +324,16 @@ class RoomService {
 
       if (isAdmin) {
         room.usersIdAdmin.splice(room.usersIdAdmin.indexOf(userEnterExit.id), 1);
+
+        if (room?.usersIdAdmin[0] === undefined && room?.usersId?.length > 0) {
+          room?.usersIdAdmin?.push(room?.usersId[0]);
+        }
       }
+
+      room.numberParticipants -= 1;
 
       const exitUserRoom = new ExitUserRoom();
       await exitUserRoom.execute({ userId: userEnterExit.id, roomId: room.id })
-
-      room.usersId.splice(room.usersId.indexOf(userEnterExit.id), 1);
-      room.numberParticipants -= 1;
 
     } else if (isRoom && enterExitRoom) {
       throw new AppError("User already participates in the room");

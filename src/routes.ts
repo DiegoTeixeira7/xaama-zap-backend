@@ -59,7 +59,6 @@ routes.patch("/userRoom/:roomId", ensureAuthenticated, ensureParticipatesRoom, u
 
 export { routes }
 
-// TODO: quando o último adm sai de uma sala, algum outro usuário vira adm (helper)
 // TODO: quando usuário sair de uma sala, tira o id dessa sala do clear messages id (add no helper)
 // TODO: arrumar mensagens de errors/AppError
 // TODO: tratar alguns lugares com try catch
