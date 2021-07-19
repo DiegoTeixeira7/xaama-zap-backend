@@ -4,10 +4,11 @@ import { RoomService } from "../services/RoomService";
 class RoomController {
   async index(request: Request, response: Response) {
     const { roomId } = request.params;
+    const { isMessages } = request.body;
 
     const roomService = new RoomService();
 
-    const room = await roomService.index({ roomId });
+    const room = await roomService.index({ roomId, isMessages });
 
     return response.status(200).json(room);
   }
