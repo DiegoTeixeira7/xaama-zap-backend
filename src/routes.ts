@@ -55,8 +55,13 @@ routes.post("/message/:roomId", ensureAuthenticated, ensureParticipatesRoom, mes
 
 // UserRoom
 routes.get("/userRoom", ensureAuthenticated, userRoomController.index);
+routes.patch("/userRoom/:roomId", ensureAuthenticated, ensureParticipatesRoom, userRoomController.update);
 
 export { routes }
 
-// TODO: rota para limpar/voltar as mensagens (rota)
 // TODO: quando o último adm sai de uma sala, algum outro usuário vira adm (helper)
+// TODO: quando usuário sair de uma sala, tira o id dessa sala do clear messages id (add no helper)
+// TODO: arrumar mensagens de errors/AppError
+// TODO: tratar alguns lugares com try catch
+// TODO: salvar json d insomnia
+// TODO: Implementar testes
