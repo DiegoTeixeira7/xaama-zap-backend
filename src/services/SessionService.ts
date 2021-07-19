@@ -72,7 +72,7 @@ class SessionService {
       userId: user.id
     })
 
-    return "User logged out successfully";
+    return { message: "User logged out successfully" };
   }
 }
 

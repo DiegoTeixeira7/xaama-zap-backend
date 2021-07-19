@@ -67,9 +67,14 @@ class RoomService {
       throw new AppError("Description is empty");
     }
 
-    const roomNameAlreadyExists = await rooms.findOne({
-      name: name.trim()
-    });
+    let roomNameAlreadyExists = null;
+    try {
+      roomNameAlreadyExists = await rooms.findOne({
+        name: name.trim()
+      });
+    } catch (err) {
+      throw new AppError(err);
+    }
 
     if (roomNameAlreadyExists) {
       throw new AppError("Room already exists!");
@@ -352,13 +357,12 @@ class RoomService {
         if (roomRemove) {
           const deleteAllMessagesFromRoom = new DeleteAllMessagesFromRoom();
           if (deleteAllMessagesFromRoom.execute(roomRemove?.messageId)) {
-            return "Room and messages removed";
+            return { message: "Room and messages removed" }
           } else {
-            return "Room and removed";
+            return { message: "Room removed" }
           }
         }
-
-        return "Room has not been removed";
+        throw new AppError("Room has not been removed")
       }
 
       return updatedRoom;
@@ -398,13 +402,13 @@ class RoomService {
       const deleteAllMessagesFromRoom = new DeleteAllMessagesFromRoom();
 
       if (deleteAllMessagesFromRoom.execute(roomRemove?.messageId)) {
-        return "Room and messages removed";
+        return { message: "Room and messages removed" }
       } else {
-        return "Room and removed";
+        return { message: "Room removed" }
       }
     }
 
-    return "Room has not been removed";
+    throw new AppError("Room has not been removed")
   }
 
 }
