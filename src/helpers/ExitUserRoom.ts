@@ -37,6 +37,8 @@ class ExitUserRoom {
       }
 
       userRoom.roomId.splice(userRoom.roomId.indexOf(roomId), 1);
+      userRoom.clearMessagesRoomId.splice(userRoom.clearMessagesRoomId.indexOf(roomId), 1);
+
       userRoom.updateAt = new Date(Date.now());
 
       const userRoomUpdate = await userRoom.save();
