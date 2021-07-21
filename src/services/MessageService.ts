@@ -1,6 +1,6 @@
 import { messages } from '../entities/Message';
-import { rooms } from 'src/entities/Room';
-import { AppError } from 'src/errors/AppError';
+import { rooms } from '../entities/Room';
+import { AppError } from '../errors/AppError';
 
 interface IMessageRequest {
   userId: string;

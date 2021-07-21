@@ -1,5 +1,5 @@
 import { refreshTokens } from '../entities/RefreshToken';
-import { AppError } from 'src/errors/AppError';
+import { AppError } from '../errors/AppError';
 import dayjs from 'dayjs';
 
 class GenerateRefreshToken {

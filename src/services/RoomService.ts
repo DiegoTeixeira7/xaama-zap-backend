@@ -1,10 +1,10 @@
 import { rooms } from '../entities/Room';
 import { users } from '../entities/User';
 import { Types } from 'mongoose';
-import { AppError } from 'src/errors/AppError';
-import { DeleteAllMessagesFromRoom } from 'src/helpers/DeleteAllMessagesFromRoom';
-import { EnterUserRoom } from 'src/helpers/EnterUserRoom';
-import { ExitUserRoom } from 'src/helpers/ExitUserRoom';
+import { AppError } from '../errors/AppError';
+import { DeleteAllMessagesFromRoom } from '../helpers/DeleteAllMessagesFromRoom';
+import { EnterUserRoom } from '../helpers/EnterUserRoom';
+import { ExitUserRoom } from '../helpers/ExitUserRoom';
 
 interface IRoomRequest {
   type?: string;

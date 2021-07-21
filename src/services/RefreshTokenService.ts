@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import { refreshTokens } from '../entities/RefreshToken';
-import { GenerateTokenProvider } from 'src/helpers/GenerateTokenProvider';
-import { AppError } from 'src/errors/AppError';
-import { GenerateRefreshToken } from 'src/helpers/GenerateRefreshToken';
+import { GenerateTokenProvider } from '../helpers/GenerateTokenProvider';
+import { AppError } from '../errors/AppError';
+import { GenerateRefreshToken } from '../helpers/GenerateRefreshToken';
 
 class RefreshTokenService {
   async execute(rToken: string) {

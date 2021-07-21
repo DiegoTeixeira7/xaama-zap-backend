@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RefreshTokenService } from "src/services/RefreshTokenService";
+import { RefreshTokenService } from "../services/RefreshTokenService";
 
 class RefreshTokenController {
   async handle(request: Request, response: Response) {

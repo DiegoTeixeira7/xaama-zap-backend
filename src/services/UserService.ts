@@ -1,10 +1,10 @@
 import { users } from '../entities/User';
 import { refreshTokens } from '../entities/RefreshToken';
-import { usersRooms } from 'src/entities/UserRoom';
+import { usersRooms } from '../entities/UserRoom';
 import { hash } from "bcryptjs";
-import { GenerateTokenProvider } from 'src/helpers/GenerateTokenProvider';
-import { AppError } from 'src/errors/AppError';
-import { GenerateRefreshToken } from 'src/helpers/GenerateRefreshToken';
+import { GenerateTokenProvider } from '../helpers/GenerateTokenProvider';
+import { AppError } from '../errors/AppError';
+import { GenerateRefreshToken } from '../helpers/GenerateRefreshToken';
 interface IUserRequest {
   username?: string;
   phone?: string;

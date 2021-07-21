@@ -60,3 +60,5 @@ routes.patch("/userRoom/:roomId", ensureAuthenticated, ensureParticipatesRoom, u
 export { routes }
 
 // TODO: Implementar testes
+// TODO: Implementar rota de delete um usuário
+// TODO: Ao deletar um usuário, deve sair de todas as salas(tirar admin) e apagar do user room

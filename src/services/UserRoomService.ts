@@ -1,5 +1,5 @@
 import { usersRooms } from '../entities/UserRoom';
-import { AppError } from 'src/errors/AppError';
+import { AppError } from '../errors/AppError';
 
 interface IUserRoomRequest {
   userId: string;
