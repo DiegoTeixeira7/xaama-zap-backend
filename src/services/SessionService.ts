@@ -1,9 +1,9 @@
 import { users } from '../entities/User';
 import { refreshTokens } from '../entities/RefreshToken';
 import { compare } from "bcryptjs";
-import { AppError } from 'src/errors/AppError';
-import { GenerateRefreshToken } from 'src/helpers/GenerateRefreshToken';
-import { GenerateTokenProvider } from 'src/helpers/GenerateTokenProvider';
+import { AppError } from '../errors/AppError';
+import { GenerateRefreshToken } from '../helpers/GenerateRefreshToken';
+import { GenerateTokenProvider } from '../helpers/GenerateTokenProvider';
 
 interface IUserRequest {
   username: string;

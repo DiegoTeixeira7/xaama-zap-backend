@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { rooms } from '../entities/Room';
-import { AppError } from 'src/errors/AppError';
+import { AppError } from '../errors/AppError';
 
 export async function ensureParticipatesRoom(request: Request, response: Response, next: NextFunction) {
   const { roomId } = request.params;
