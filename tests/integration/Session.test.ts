@@ -10,9 +10,14 @@ let userToken = "";
 const username = faker.name.firstName();
 const phone = faker.phone.phoneNumber();
 
+// Importing entities
+import { users } from '../../src/entities/User';
 
 describe('Session', () => {
   afterAll(async () => {
+    const user = await users.findOne({ username });
+    await user.remove();
+
     await mongoose.disconnect().catch((error) => {
       return console.error("Unable to disconnect from database:", error);
     });
@@ -42,13 +47,5 @@ describe('Session', () => {
     }).set({
       Authorization: `Bearer ${userToken}`
     }).expect(400);
-  });
-
-  test("Should be able to delete user", async () => {
-    return await request(app).delete("/user").set({
-      Authorization: `Bearer ${userToken}`
-    }).send({
-      password: "1234567"
-    }).expect(200);
   });
 })
