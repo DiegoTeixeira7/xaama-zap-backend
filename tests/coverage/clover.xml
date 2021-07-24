@@ -1,114 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626907773489" clover="3.2.0">
-  <project timestamp="1626907773489" name="All files">
-    <metrics statements="636" coveredstatements="191" conditionals="367" coveredconditionals="13" methods="56" coveredmethods="9" elements="1059" coveredelements="213" complexity="0" loc="636" ncloc="636" packages="8" files="30" classes="30"/>
+<coverage generated="1627128347551" clover="3.2.0">
+  <project timestamp="1627128347551" name="All files">
+    <metrics statements="633" coveredstatements="234" conditionals="365" coveredconditionals="31" methods="54" coveredmethods="16" elements="1052" coveredelements="281" complexity="0" loc="633" ncloc="633" packages="8" files="29" classes="29"/>
     <package name="src">
-      <metrics statements="55" coveredstatements="48" conditionals="4" coveredconditionals="1" methods="4" coveredmethods="1"/>
+      <metrics statements="50" coveredstatements="48" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="app.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/app.ts">
         <metrics statements="15" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="26" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="26" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="3" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
       </file>
       <file name="routes.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/routes.ts">
         <metrics statements="35" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-        <line num="43" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
-        <line num="54" count="2" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
-      </file>
-      <file name="server.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/server.ts">
-        <metrics statements="5" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="3" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="47" count="4" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="50" count="4" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="54" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="60" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.config">
       <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="database.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/config/database.ts">
         <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="81" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="2"/>
+      <metrics statements="81" coveredstatements="32" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="5"/>
       <file name="MessageController.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/controllers/MessageController.ts">
         <metrics statements="8" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
       </file>
       <file name="RefreshTokenController.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/controllers/RefreshTokenController.ts">
-        <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
       </file>
       <file name="RoomController.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/controllers/RoomController.ts">
         <metrics statements="35" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
@@ -142,37 +134,37 @@
         <line num="83" count="0" type="stmt"/>
         <line num="85" count="0" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
-        <line num="91" count="2" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
       </file>
       <file name="SessionController.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/controllers/SessionController.ts">
-        <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="2" count="2" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="4" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
       </file>
       <file name="UserController.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/controllers/UserController.ts">
-        <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
       </file>
       <file name="UserRoomController.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/controllers/UserRoomController.ts">
         <metrics statements="12" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
@@ -183,61 +175,61 @@
         <line num="20" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.entities">
       <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Message.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/entities/Message.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
       </file>
       <file name="RefreshToken.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/entities/RefreshToken.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
       </file>
       <file name="Room.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/entities/Room.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
       </file>
       <file name="User.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/entities/User.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-        <line num="44" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
       </file>
       <file name="UserRoom.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/entities/UserRoom.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.errors">
       <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="AppError.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/errors/AppError.ts">
         <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.helpers">
       <metrics statements="76" coveredstatements="18" conditionals="54" coveredconditionals="1" methods="8" coveredmethods="2"/>
       <file name="DeleteAllMessagesFromRoom.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/helpers/DeleteAllMessagesFromRoom.ts">
         <metrics statements="11" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
         <line num="5" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
@@ -247,11 +239,11 @@
         <line num="14" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
       </file>
       <file name="EnterUserRoom.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/helpers/EnterUserRoom.ts">
         <metrics statements="27" coveredstatements="2" conditionals="26" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
         <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="12" count="0" type="stmt"/>
         <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -277,11 +269,11 @@
         <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="56" count="0" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
-        <line num="64" count="2" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
       </file>
       <file name="ExitUserRoom.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/helpers/ExitUserRoom.ts">
         <metrics statements="25" coveredstatements="2" conditionals="20" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
         <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="12" count="0" type="stmt"/>
         <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -305,35 +297,35 @@
         <line num="47" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
       </file>
       <file name="GenerateRefreshToken.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/helpers/GenerateRefreshToken.ts">
         <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="14" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="15" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="14" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="5" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
       </file>
       <file name="GenerateTokenProvider.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/helpers/GenerateTokenProvider.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.middlewares">
-      <metrics statements="45" coveredstatements="8" conditionals="16" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <metrics statements="45" coveredstatements="16" conditionals="16" coveredconditionals="2" methods="5" coveredmethods="1"/>
       <file name="ensureAdminRoom.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/middlewares/ensureAdminRoom.ts">
         <metrics statements="15" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -348,24 +340,24 @@
         <line num="26" count="0" type="stmt"/>
       </file>
       <file name="ensureAuthenticated.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/middlewares/ensureAuthenticated.ts">
-        <metrics statements="11" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
+        <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
       </file>
       <file name="ensureParticipatesRoom.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/middlewares/ensureParticipatesRoom.ts">
         <metrics statements="19" coveredstatements="3" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -385,12 +377,12 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="347" coveredstatements="66" conditionals="292" coveredconditionals="10" methods="22" coveredmethods="2"/>
+      <metrics statements="349" coveredstatements="89" conditionals="292" coveredconditionals="26" methods="22" coveredmethods="5"/>
       <file name="MessageService.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/services/MessageService.ts">
         <metrics statements="22" coveredstatements="4" conditionals="12" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
         <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="14" count="0" type="stmt"/>
         <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -409,37 +401,39 @@
         <line num="40" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
       </file>
       <file name="RefreshTokenService.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/services/RefreshTokenService.ts">
-        <metrics statements="18" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="27" count="0" type="stmt"/>
+        <metrics statements="20" coveredstatements="15" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
       </file>
       <file name="RoomService.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/services/RoomService.ts">
         <metrics statements="193" coveredstatements="7" conditionals="190" coveredconditionals="0" methods="13" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
         <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="26" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
@@ -626,16 +620,16 @@
         <line num="405" count="0" type="stmt"/>
         <line num="407" count="0" type="stmt"/>
         <line num="411" count="0" type="stmt"/>
-        <line num="416" count="2" type="stmt"/>
+        <line num="416" count="4" type="stmt"/>
       </file>
       <file name="SessionService.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/services/SessionService.ts">
-        <metrics statements="36" coveredstatements="23" conditionals="12" coveredconditionals="5" methods="2" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
+        <metrics statements="36" coveredstatements="32" conditionals="12" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
         <line num="15" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="16" count="0" type="stmt"/>
         <line num="19" count="2" type="cond" truecount="1" falsecount="1"/>
@@ -655,22 +649,22 @@
         <line num="48" count="1" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="56" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="79" count="2" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="63" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="79" count="4" type="stmt"/>
       </file>
       <file name="UserRoomService.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/services/UserRoomService.ts">
         <metrics statements="43" coveredstatements="3" conditionals="48" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
         <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="13" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
@@ -711,45 +705,45 @@
         <line num="85" count="0" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
-        <line num="96" count="2" type="stmt"/>
+        <line num="96" count="4" type="stmt"/>
       </file>
       <file name="UserService.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/services/UserService.ts">
-        <metrics statements="35" coveredstatements="23" conditionals="26" coveredconditionals="5" methods="2" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="35" coveredstatements="28" conditionals="26" coveredconditionals="16" methods="2" coveredmethods="2"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="36" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="40" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="41" count="0" type="stmt"/>
-        <line num="44" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="44" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
-        <line num="52" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="52" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="56" count="2" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="65" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="73" count="2" type="stmt"/>
-        <line num="74" count="2" type="stmt"/>
-        <line num="76" count="2" type="stmt"/>
-        <line num="78" count="2" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="65" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="66" count="4" type="stmt"/>
+        <line num="67" count="4" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="73" count="4" type="stmt"/>
+        <line num="74" count="4" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
+        <line num="78" count="4" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
-        <line num="85" count="2" type="stmt"/>
+        <line num="85" count="4" type="stmt"/>
       </file>
     </package>
   </project>
