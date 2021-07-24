@@ -19,7 +19,7 @@ class MessageService {
     }
 
     if (!message) {
-      throw new AppError("Description is empty");
+      throw new AppError("Message is empty");
     }
 
     const sendMessage = await messages.create({ userId, roomId, message });

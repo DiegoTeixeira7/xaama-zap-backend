@@ -38,6 +38,34 @@ describe('Session', () => {
     }).expect(200).then((response) => userToken = response.body.token);
   });
 
+  test("Should not able to create a session", async () => {
+    await request(app).post("/login").send({
+      username: "usernameIncorrect",
+      password: "1234567"
+    }).expect(400);
+  });
+
+  test("Should not able to create a session", async () => {
+    await request(app).post("/login").send({
+      username,
+      password: "passwordIncorrect"
+    }).expect(400);
+  });
+
+  test("Should not able to create a session", async () => {
+    await request(app).post("/login").send({
+      username: "",
+      password: "1234567"
+    }).expect(400);
+  });
+
+  test("Should not able to create a session", async () => {
+    await request(app).post("/login").send({
+      username,
+      password: ""
+    }).expect(400);
+  });
+
   test("Should be able to end a session", async () => {
     await request(app).post("/logout").send({
       username,
@@ -54,10 +82,11 @@ describe('Session', () => {
     }).expect(400);
   });
 
-  test("Should not able to create a session", async () => {
-    await request(app).post("/login").send({
-      username,
-      password: "passwordIncorrect"
+  test("Should not able to end a session", async () => {
+    await request(app).post("/logout").send({
+      username: "",
+    }).set({
+      Authorization: `Bearer ${userToken}`
     }).expect(400);
   });
 })

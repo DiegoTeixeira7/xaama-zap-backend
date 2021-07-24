@@ -31,6 +31,38 @@ describe('Session', () => {
     }).expect(200).then((response) => userToken = response.body.token);
   });
 
+  test("Should not able to create a user", async () => {
+    await request(app).post("/user").send({
+      username: "",
+      phone,
+      password: "1234567",
+    }).expect(400);
+  });
+
+  test("Should not able to create a user", async () => {
+    await request(app).post("/user").send({
+      username,
+      phone: "",
+      password: "1234567",
+    }).expect(400);
+  });
+
+  test("Should not able to create a user", async () => {
+    await request(app).post("/user").send({
+      username,
+      phone,
+      password: "",
+    }).expect(400);
+  });
+
+  test("Should not able to create a user", async () => {
+    await request(app).post("/user").send({
+      username,
+      phone,
+      password: "1234567",
+    }).expect(400);
+  });
+
   test("Should be able to get a user", async () => {
     await request(app).get("/user").set({
       Authorization: `Bearer ${userToken}`
