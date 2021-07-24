@@ -13,11 +13,11 @@ interface IUserRequest {
 class SessionService {
   async create({ username, password }: IUserRequest) {
     if (!username) {
-      throw new AppError("Username/Password incorrect!");
+      throw new AppError("Username/Password empty!");
     }
 
     if (!password) {
-      throw new AppError("Username/Password incorrect!");
+      throw new AppError("Username/Password empty!");
     }
 
     const user = await users.findOne({
@@ -53,7 +53,7 @@ class SessionService {
 
   async logout({ username }: IUserRequest) {
     if (!username) {
-      throw new AppError("Username/Password incorrect!");
+      throw new AppError("Username/Password empty!");
     }
 
     const user = await users.findOne({

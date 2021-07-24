@@ -7,7 +7,11 @@ import { GenerateRefreshToken } from '../helpers/GenerateRefreshToken';
 class RefreshTokenService {
   async execute(rToken: string) {
     var refreshToken;
-    refreshToken = await refreshTokens.findById(rToken).populate('userId');
+    try {
+      refreshToken = await refreshTokens.findById(rToken).populate('userId');
+    } catch (error) {
+      throw new AppError(error);
+    }
 
     if (!refreshToken) {
       throw new AppError("Refresh token invalid");
