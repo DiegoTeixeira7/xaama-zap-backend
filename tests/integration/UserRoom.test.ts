@@ -21,7 +21,7 @@ const message = "A simple message";
 import { users } from '../../src/entities/User';
 import { rooms } from '../../src/entities/Room';
 
-describe('Message', () => {
+describe('Session', () => {
   afterAll(async () => {
     const user = await users.findOne({ username });
     await user.remove();
@@ -71,33 +71,41 @@ describe('Message', () => {
     }).expect(200);
   });
 
-  test("Should not able to create a message an room", async () => {
-    await request(app).post(`/message/${roomId}`).send({
-      message
-    }).expect(401);
+  test("Should be able to return all rooms that a user participates in", async () => {
+    await request(app).get("/userRoom").set({
+      Authorization: `Bearer ${userToken}`
+    }).expect(200);
   });
 
-  test("Should not able to create a message an room", async () => {
-    await request(app).post(`/message/${roomId}`).send({
-      message: ""
+  test("Should be able to clear messages from a room", async () => {
+    await request(app).patch(`/userRoom/${roomId}`).send({
+      clearMessages: true
+    }).set({
+      Authorization: `Bearer ${userToken}`
+    }).expect(200);
+  });
+
+  test("Should not able to clear messages from a room", async () => {
+    await request(app).patch(`/userRoom/${roomId}`).send({
+      clearMessages: true
     }).set({
       Authorization: `Bearer ${userToken}`
     }).expect(400);
   });
 
-  test("Should not able to create a message an room", async () => {
-    await request(app).post('/message/dsf323').send({
-      message
+  test("Should be able to restore messages from a room", async () => {
+    await request(app).patch(`/userRoom/${roomId}`).send({
+      clearMessages: false
     }).set({
       Authorization: `Bearer ${userToken}`
-    }).expect(400);
+    }).expect(200);
   });
 
-  test("Should not able to create a message an room", async () => {
-    await request(app).post(`/message/${roomId}`).send({
-      message
+  test("Should not able to restore messages from a room", async () => {
+    await request(app).patch(`/userRoom/${roomId}`).send({
+      clearMessages: false
     }).set({
-      Authorization: `Bearer ${otherUserToken}`
+      Authorization: `Bearer ${userToken}`
     }).expect(400);
   });
 

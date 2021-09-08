@@ -24,7 +24,7 @@ const message = "A simple message";
 import { users } from '../../src/entities/User';
 import { rooms } from '../../src/entities/Room';
 
-describe('Session', () => {
+describe('Room', () => {
   afterAll(async () => {
     const user = await users.findOne({ username });
     await user.remove();
