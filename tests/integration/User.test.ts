@@ -13,7 +13,7 @@ const phone = faker.phone.phoneNumber();
 // Importing entities
 import { users } from '../../src/entities/User';
 
-describe('Session', () => {
+describe('User', () => {
   afterAll(async () => {
     const user = await users.findOne({ username });
     await user.remove();

@@ -50,13 +50,16 @@ routes.patch("/roomParticipants/:roomId", ensureAuthenticated, ensureParticipate
 routes.patch("/roomAdmin/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensureAdminRoom, roomController.updateByAdmin);
 routes.delete("/room/:roomId", ensureAuthenticated, ensureParticipatesRoom, ensureAdminRoom, roomController.delete);
 
-// Message
+//  Message
 routes.post("/message/:roomId", ensureAuthenticated, ensureParticipatesRoom, messageController.create);
 
-// UserRoom
+//  UserRoom
 routes.get("/userRoom", ensureAuthenticated, userRoomController.index);
 routes.patch("/userRoom/:roomId", ensureAuthenticated, ensureParticipatesRoom, userRoomController.update);
 
 export { routes }
 
-// TODO: Implementar testes
+// TODO: Reestruturar server como classe
+// TODO: Adicionar lista de amigos podendo removê-los
+// TODO: Procurar pelo usuário @username
+// TODO: Buscar grupo
