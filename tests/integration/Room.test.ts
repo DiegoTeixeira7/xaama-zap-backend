@@ -246,6 +246,14 @@ describe('Room', () => {
     }).expect(200).then((response) => removeRoomId = response.body._id);
   });
 
+  test("Should be able to create a message an room", async () => {
+    await request(app).post(`/message/${removeRoomId}`).send({
+      message
+    }).set({
+      Authorization: `Bearer ${userToken}`
+    }).expect(200);
+  });
+
   test("Should be able to remove an room", async () => {
     await request(app).delete(`/room/${removeRoomId}`).set({
       Authorization: `Bearer ${otherUserToken}`

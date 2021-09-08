@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631108837736" clover="3.2.0">
-  <project timestamp="1631108837736" name="All files">
-    <metrics statements="633" coveredstatements="533" conditionals="365" coveredconditionals="241" methods="54" coveredmethods="51" elements="1052" coveredelements="825" complexity="0" loc="633" ncloc="633" packages="8" files="29" classes="29"/>
+<coverage generated="1631109606589" clover="3.2.0">
+  <project timestamp="1631109606589" name="All files">
+    <metrics statements="633" coveredstatements="538" conditionals="365" coveredconditionals="242" methods="54" coveredmethods="52" elements="1052" coveredelements="832" complexity="0" loc="633" ncloc="633" packages="8" files="29" classes="29"/>
     <package name="src">
       <metrics statements="50" coveredstatements="48" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="app.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/app.ts">
@@ -81,12 +81,12 @@
       <file name="MessageController.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/controllers/MessageController.ts">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="7" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
         <line num="18" count="7" type="stmt"/>
       </file>
       <file name="RefreshTokenController.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/controllers/RefreshTokenController.ts">
@@ -226,17 +226,17 @@
       </file>
     </package>
     <package name="src.helpers">
-      <metrics statements="76" coveredstatements="52" conditionals="54" coveredconditionals="32" methods="8" coveredmethods="7"/>
+      <metrics statements="76" coveredstatements="57" conditionals="54" coveredconditionals="33" methods="8" coveredmethods="8"/>
       <file name="DeleteAllMessagesFromRoom.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/helpers/DeleteAllMessagesFromRoom.ts">
-        <metrics statements="11" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="1"/>
+        <metrics statements="11" coveredstatements="9" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="7" type="stmt"/>
         <line num="5" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="14" count="0" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="1" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="24" count="7" type="stmt"/>
@@ -343,14 +343,14 @@
         <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="2" count="7" type="stmt"/>
         <line num="8" count="7" type="stmt"/>
-        <line num="9" count="42" type="stmt"/>
-        <line num="11" count="42" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="43" type="stmt"/>
+        <line num="11" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="12" count="2" type="stmt"/>
-        <line num="15" count="40" type="stmt"/>
-        <line num="17" count="40" type="stmt"/>
-        <line num="18" count="40" type="stmt"/>
-        <line num="19" count="40" type="stmt"/>
-        <line num="21" count="40" type="stmt"/>
+        <line num="15" count="41" type="stmt"/>
+        <line num="17" count="41" type="stmt"/>
+        <line num="18" count="41" type="stmt"/>
+        <line num="19" count="41" type="stmt"/>
+        <line num="21" count="41" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
       </file>
       <file name="ensureParticipatesRoom.ts" path="/home/diego/Documentos/Projetos/xaama-zap/xaama-zap-backend/src/middlewares/ensureParticipatesRoom.ts">
@@ -358,21 +358,21 @@
         <line num="2" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
         <line num="5" count="7" type="stmt"/>
-        <line num="6" count="21" type="stmt"/>
-        <line num="7" count="21" type="stmt"/>
-        <line num="8" count="21" type="stmt"/>
-        <line num="10" count="21" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="10" count="22" type="cond" truecount="1" falsecount="1"/>
         <line num="11" count="0" type="stmt"/>
-        <line num="14" count="21" type="stmt"/>
-        <line num="15" count="21" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
-        <line num="20" count="19" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="20" type="cond" truecount="1" falsecount="1"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="24" count="19" type="stmt"/>
-        <line num="25" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="26" count="17" type="stmt"/>
-        <line num="30" count="19" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="17" type="stmt"/>
+        <line num="24" count="20" type="stmt"/>
+        <line num="25" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="18" type="stmt"/>
+        <line num="30" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="18" type="stmt"/>
         <line num="34" count="2" type="stmt"/>
       </file>
     </package>
@@ -383,22 +383,22 @@
         <line num="1" count="7" type="stmt"/>
         <line num="2" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
-        <line num="13" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="17" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="21" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
-        <line num="27" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="30" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="27" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="30" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="37" count="3" type="stmt"/>
-        <line num="39" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="40" count="3" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="39" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="4" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="51" count="7" type="stmt"/>
