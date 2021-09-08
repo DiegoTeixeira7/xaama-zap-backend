@@ -59,7 +59,6 @@ routes.patch("/userRoom/:roomId", ensureAuthenticated, ensureParticipatesRoom, u
 
 export { routes }
 
-// TODO: Reestruturar server como classe
 // TODO: Adicionar lista de amigos podendo removê-los
-// TODO: Procurar pelo usuário @username
-// TODO: Buscar grupo
+// TODO: Procurar pelo usuário @username (local e global)
+// TODO: Buscar grupo (local e global)

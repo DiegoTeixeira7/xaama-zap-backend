@@ -4,36 +4,60 @@ import { AppError } from "./errors/AppError";
 
 import cors from "cors";
 import { routes } from "./routes"
-require("./config/database");
+import db from "./config/database";
 
-//  Setting up express and port number
-const app = express();
+class App {
+  public express: express.Application;
 
-//  Configuring CORS
-const corsOptions = {
-  origin: process.env.URL,
-  optionsSuccessStatus: 200
-};
+  constructor() {
+    this.express = express();
 
-//  Must be below middleware
-//  Using modules
-app.use(express.json());
-app.use(cors(corsOptions));
-app.use(routes);
-
-app.use(
-  (err: Error, request: Request, response: Response, _next: NextFunction) => {
-    if (err instanceof AppError) {
-      return response.status(err.statusCode).json({
-        message: err.message,
-      });
-    }
-
-    return response.status(500).json({
-      status: "Error",
-      message: "Internal server error",
-    });
+    this.database();
+    this.middlewares();
+    this.routes();
+    this.appError();
   }
-);
 
-export default app;
+  //	Using resources as middlewares
+  private middlewares(): void {
+    //  Configuring CORS
+    const corsOptions = {
+      origin: process.env.URL,
+      optionsSuccessStatus: 200
+    };
+
+    this.express.use(express.json());
+    this.express.use(cors(corsOptions));
+  }
+
+  //	Implementing routes
+  private routes(): void {
+    this.express.use(routes);
+  }
+
+  private appError(): void {
+    this.express.use(
+      (err: Error, request: Request, response: Response, _next: NextFunction) => {
+        if (err instanceof AppError) {
+          return response.status(err.statusCode).json({
+            message: err.message,
+          });
+        }
+
+        return response.status(500).json({
+          status: "Error",
+          message: "Internal server error",
+        });
+      }
+    );
+  }
+
+  //	Connect to database
+  private database(): void {
+    db.connect();
+  }
+
+}
+
+//	Exporting app object
+export default new App().express;
