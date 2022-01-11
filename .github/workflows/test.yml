@@ -1,6 +1,6 @@
 name: Test
 
-on: ['push', 'pull_request']
+on: ['pull_request']
 
 jobs:
   code:
@@ -22,7 +22,7 @@ jobs:
           node-version: 16.x
 
       - name: Install dependencies
-        uses: yarn install
+        run: yarn install
 
       - name: Run Jest
         run: yarn test --coverage
